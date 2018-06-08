@@ -94,7 +94,7 @@ all() ->
 get(ID) ->
     case ets:lookup(?OBJECTS, ID) of
        [S] -> S;
-       _ -> exit(schema_not_found)
+       _ -> exit({schema_not_found, ID})
     end.
 
 -spec lookup_enum_type(binary()) -> binary() | not_found.
